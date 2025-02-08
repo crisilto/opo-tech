@@ -5,3 +5,148 @@ Tabla de horarios:
         Incluye al menos 5 filas para cada día de la semana y 6 columnas para los horarios.
         Usa etiquetas como thead, tbody, y tfoot.
 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule table</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #fdfdfd;
+        }
+
+        tfoot td{
+            background-color: #ddd;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        caption{
+            caption-side: bottom;
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Schedule Table</h1>
+        <p>Weekly Class Schedule</p>
+    </header>
+    <main>
+        <table>
+            <caption>Weekly schedule for classes</caption>
+            <thead>
+                <tr>
+                    <th>Hour</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>07:00</td>
+                    <td>Math</td>
+                    <td>Physics</td>
+                    <td>Math</td>
+                    <td>Physics</td>
+                    <td>Math</td>
+                </tr>
+                <tr>
+                    <td>08:00</td>
+                    <td>English</td>
+                    <td>Programming</td>
+                    <td>English</td>
+                    <td>Programming</td>
+                    <td>English</td>
+                </tr>
+                <tr>
+                    <td>09:00</td>
+                    <td>Programming</td>
+                    <td>Math</td>
+                    <td>Programming</td>
+                    <td>Math</td>
+                    <td>Programming</td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td>Break</td>
+                    <td>Break</td>
+                    <td>Break</td>
+                    <td>Break</td>
+                    <td>Break</td>
+                </tr>
+                <tr>
+                    <td>11:00</td>
+                    <td>History</td>
+                    <td>Chemistry</td>
+                    <td>History</td>
+                    <td>Chemistry</td>
+                    <td>History</td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td>Programming</td>
+                    <td>Biology</td>
+                    <td>Programming</td>
+                    <td>Biology</td>
+                    <td>Programming</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">End of the Schedule</td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+</body>
+
+</html>
