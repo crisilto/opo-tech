@@ -4,3 +4,132 @@ Tabla de comparación:
     Diseña una tabla que compare características de 3 productos o servicios.
         Incluye una fila para cada característica y una columna para cada producto.
 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparision table</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table caption{
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        th, td{
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th{
+            background-color: #007BFF;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        tbody tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+        
+        tbody tr:hover{
+            background-color: #e0f7fa;
+        }
+
+        tfoot td{
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>Comparison Between Three Different Devices</caption>
+        <thead>
+            <tr>
+                <th>Characteristics</th>
+                <th>Smartphone X</th>
+                <th>Laptop Y</th>
+                <th>Tablet Z</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Screen</td>
+                <td>6.5'' OLED</td>
+                <td>15.6'' IPS</td>
+                <td>10.5'' AMOLED</td>
+            </tr>
+            <tr>
+                <td>Processor</td>
+                <td>Octa-core 3.0 GHz</td>
+                <td>Intel Core i7 11th Gen</td>
+                <td>Quad-core 2.5 GHz</td>
+            </tr>
+            <tr>
+                <td>Camera</td>
+                <td>108MP/32MP</td>
+                <td>Webcam HD</td>
+                <td>8MP/5MP</td>
+            </tr>
+            <tr>
+                <td>Battery</td>
+                <td>5000 mAh</td>
+                <td>80Wh</td>
+                <td>6000 mAh</td>
+            </tr>
+            <tr>
+                <td>RAM</td>
+                <td>8 GB</td>
+                <td>16 GB DDR4</td>
+                <td>6 GB</td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td>128 GB</td>
+                <td>512 GB SSD</td>
+                <td>256 GB</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>899 €</td>
+                <td>1299 €</td>
+                <td>599 €</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">End of Comparison</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
