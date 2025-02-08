@@ -3,3 +3,63 @@ Lista de tareas:
 
     Crea una lista de tareas pendientes (ul) donde cada elemento tenga una pequeña descripción en texto (usando span o small).
 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <header>
+        <h1>To-Do List</h1>
+    </header>
+    <main>
+        <ul>
+            <li>
+                <h2 id="fic">FIC: <span>Fundamentos iniciales para la construcción</span></h2>
+                <ul aria-labelledby="fic">
+                    <li>
+                        Terminar HTML
+                        <small>Lo que estamos trabajando ahora mismo</small>
+                    </li>
+                    <li>Estudiar CSS básico/intermedio</li>
+                    <li>Primeros pasos JavaScript intermedio</li>
+                </ul>
+            </li>
+            <li>
+                <h2 id="uve">UVE: <span>Unidad visual estratégica</span></h2>
+                <ul aria-labelledby="uve">
+                    <li>JavaScript intermedio</li>
+                    <li>React básico e intermedio</li>
+                </ul>
+            </li>
+            <li>
+                <h2 id="edc">EDC: <span>Estrategias de campo</span></h2>
+                <ul aria-labelledby="edc">
+                    <li>Aplicar habilidades en proyectos funcionales</li>
+                </ul>
+            </li>
+            <li>
+                <h2 id="fli">FLI: <span>Fuerzas de la lógica interna</span></h2>
+                <ul aria-labelledby="fli">
+                    <li>Java intermedio</li>
+                    <li>SpringBoot básico e intermedio</li>
+                    <li>Bases de datos
+                        <small>SQL, MySQL, H2</small>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h2 id="uit">UIT: <span>Unidad de innovación tech</span></h2>
+                <ul aria-labelledby="uit">
+                    <li>SASS</li>
+                    <li>Tailwind</li>
+                    <li>Docker</li>
+                    <li>Git y GitHub</li>
+                </ul>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>
