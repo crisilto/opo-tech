@@ -9,11 +9,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semanthic</title>
+    <title>Semantic Page - Full Height</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            background-color: #007BFF;
+            color: white;
+            padding: 1rem;
+        }
+
+        header h1 {
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #main-section h3 {
+            text-transform: uppercase;
+            text-align: center;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        footer h3 {
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0;
+        }
+
+        footer ul li a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <h1>Semantic Exercise</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" aria-label="Go to home section">Home</a></li>
+                <li><a href="#main-section" aria-label="Go to main section">Main Section</a></li>
+                <li><a href="#footer" aria-label="Go to footer section">Footer</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main>
+        <section id="main-section">
+            <h3>Main Section</h3>
+            <article>
+                <h4>Article Title</h4>
+                <p>This is an article that explains the importance of semantic HTML for accessibility and clarity.</p>
+            </article>
+            <p>This is a paragraph providing additional context for the main section.</p>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Footer - My Socials</h3>
+        <ul>
+            <li><a href="#" aria-label="Visit my LinkedIn profile">LinkedIn</a></li>
+            <li><a href="#" aria-label="Visit my GitHub repository">GitHub</a></li>
+        </ul>
+        <p>&copy; 2025 Semantic Page</p>
+    </footer>
 </body>
 
 </html>
