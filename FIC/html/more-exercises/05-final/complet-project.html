@@ -23,6 +23,134 @@ Proyecto completo: Diseña tu página de perfil personal
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #dfdcdc;
+        }
+
+        section {
+            padding: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        caption{
+            caption-side: bottom;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            color: #333;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        thead tr:hover {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        tbody tr:hover {
+            background-color: #e0f7fa;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: 2px solid #007bff;
+            border-color: #007bff;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,99 +158,79 @@ Proyecto completo: Diseña tu página de perfil personal
         <h1>Crisilto Portfolio</h1>
         <nav>
             <ul>
-                <li><a href="#top">Top</a></li>
-                <li><a href="#about-me">About me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#footer">Footer</a></li>
+                <li><a href="#top" aria-label="Go to top">Top</a></li>
+                <li><a href="#about-me" aria-label="About me section">About Me</a></li>
+                <li><a href="#skills" aria-label="Skills section">Skills</a></li>
+                <li><a href="#contact" aria-label="Contact section">Contact</a></li>
+                <li><a href="#footer" aria-label="Footer section">Footer</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="about-me">
-            <h3>About me</h3>
-            <p>Lorem ipsum</p>
-            <img src="img.jpg" alt="Image of about me section">
+            <h2>About Me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo non nisi aliquet fermentum.</p>
+            <img src="img.jpg" alt="A profile image of Crisilto">
         </section>
+
         <section id="skills">
-            <h3>Skills</h3>
+            <h2>Skills</h2>
             <table>
+                <caption>Technical and Language Skills</caption>
                 <thead>
                     <tr>
-                        <th>Front</th>
-                        <th>%</th>
-                        <th>Back</th>
-                        <th>%</th>
-                        <th>Database</th>
-                        <th>%</th>
-                        <th>Languages</th>
-                        <th>%</th>
+                        <th>Skill</th>
+                        <th>Level (%)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>HTML</td>
-                        <td>60</td>
-                        <td>Java</td>
-                        <td>50</td>
-                        <td>SQL</td>
-                        <td>40</td>
-                        <td>Spanish</td>
-                        <td>100</td>
+                        <td>80%</td>
                     </tr>
-
                     <tr>
                         <td>CSS</td>
-                        <td>40</td>
-                        <td>PHP</td>
-                        <td>40</td>
-                        <td>MySQL</td>
-                        <td>50</td>
-                        <td>English</td>
-                        <td>70</td>
+                        <td>70%</td>
                     </tr>
-
                     <tr>
                         <td>JavaScript</td>
-                        <td>70</td>
-                        <td>SpringBoot</td>
-                        <td>30</td>
-                        <td>H2</td>
-                        <td>70</td>
-                        <td>Valencian</td>
-                        <td>80</td>
+                        <td>65%</td>
+                    </tr>
+                    <tr>
+                        <td>SQL</td>
+                        <td>50%</td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>85%</td>
                     </tr>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">57%</td>
-                        <td colspan="2">40%</td>
-                        <td colspan="2">53%</td>
-                        <td colspan="2">83%</td>
-                    </tr>
-                </tfoot>
             </table>
         </section>
 
         <section id="contact">
-            <h3>Contact</h3>
+            <h2>Contact</h2>
             <form>
                 <label for="name">Name:</label>
-                <input type="text">
+                <input type="text" id="name" placeholder="Your full name" required>
+
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email">
+                <input type="email" id="email" placeholder="Your email address" required>
+
                 <label for="message">Message:</label>
-                <textarea name="message" id="message" cols="10" rows="2"></textarea>
+                <textarea id="message" rows="5" placeholder="Your message here..." required></textarea>
+
+                <button type="submit">Submit</button>
             </form>
         </section>
-        <footer id="footer">
-            <p>My socials:</p>
-            <a href="#">Linkedin</a>
-            <a href="#">GitHub</a>
-            <a href="#">X</a>
-            <p>&copy;2025</p>
-        </footer>
     </main>
+    <footer id="footer">
+        <p>My Socials:</p>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Twitter</a>
+        <p>&copy; 2025 Crisilto Portfolio</p>
+    </footer>
 </body>
 
 </html>
