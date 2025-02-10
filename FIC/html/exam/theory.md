@@ -5,7 +5,7 @@
 ### 1. **Estructura básica**
 Escribe el código mínimo necesario para una página HTML válida:
 
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +17,7 @@ Escribe el código mínimo necesario para una página HTML válida:
     <h1>Hello HTML</h1>
 </body>
 </html>
+```
 
 ---
 
