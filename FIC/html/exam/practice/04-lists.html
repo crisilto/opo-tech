@@ -1,20 +1,111 @@
 <!--Lista anidada:
 
     Diseña un menú de navegación con tres niveles de profundidad:
-        Nivel 1: "Inicio", "Servicios", "Contacto".
-        Nivel 2 (bajo "Servicios"): "Diseño web", "Marketing", "Soporte".
-        Nivel 3 (bajo "Diseño web"): "Front-end", "Back-end".-->
+        Nivel 1: "Home", "Services", "Contact".
+        Nivel 2 (under "Services"): "Web design", "Marketing", "Support".
+        Nivel 3 (under "Web design"): "Front-end", "Back-end".-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lists</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Menu</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .navigation-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #0056b3;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            min-width: 150px;
+            padding-left: 10px;
+        }
+
+        nav ul li:hover>ul {
+            display: block;
+        }
+
+        nav ul ul li a {
+            background-color: #4CAF50;
+        }
+
+        nav ul ul li a:hover {
+            background-color: #388E3C;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="navigation-container">
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Services</a>
+                    <ul>
+                        <li>
+                            <a href="#">Web design</a>
+                            <ul>
+                                <li><a href="#">Front-end</a></li>
+                                <li><a href="#">Back-end</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 </body>
 
 </html>
