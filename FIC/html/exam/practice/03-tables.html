@@ -10,10 +10,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tables</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .table-container{
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2{
+            margin-bottom: 15px;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td{
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th{
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tbody tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+
+        tfoot td{
+            font-weight: bold;
+            background-color: #ddd;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="table-container">
+        <h2>WEEKLY SCHEDULE</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hour</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>06:00</td>
+                    <td>Gym</td>
+                    <td>Gym</td>
+                    <td>Gym</td>
+                    <td>Gym</td>
+                    <td>Gym</td>
+                </tr>
+                <tr>
+                    <td>08:00</td>
+                    <td>FIC</td>
+                    <td>FIC</td>
+                    <td>FLI</td>
+                    <td>FLI</td>
+                    <td>UIT</td>
+                </tr>
+                <tr>
+                    <td>11:00</td>
+                    <td>FIC</td>
+                    <td>FIC</td>
+                    <td>FLI</td>
+                    <td>FLI</td>
+                    <td>UIT</td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td>Rest</td>
+                    <td>Rest</td>
+                    <td>Rest</td>
+                    <td>Rest</td>
+                    <td>Rest</td>
+                </tr>
+                <tr>
+                    <td>15:00</td>
+                    <td>Practice</td>
+                    <td>Practice</td>
+                    <td>Practice</td>
+                    <td>Practice</td>
+                    <td>Practice</td>
+                </tr>
+                <tr>
+                    <td>18:00</td>
+                    <td>Read</td>
+                    <td>Read</td>
+                    <td>Read</td>
+                    <td>Read</td>
+                    <td>Read</td>
+                </tr>
+                <tr>
+                    <td>19:30</td>
+                    <td>Draw</td>
+                    <td>Draw</td>
+                    <td>Draw</td>
+                    <td>Draw</td>
+                    <td>Draw</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">End of weekly schedule</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 </body>
 
 </html>
