@@ -28,7 +28,7 @@ console.log(myVariables);
 
 // 5. Imprime por consola el tipo de todas las variables.
 console.log("Initial type of variables:");
-for (variable in myVariables) {
+for (let variable in myVariables) {
     console.log(`${variable} : ${typeof myVariables[variable]}`);
 }
 
@@ -46,7 +46,7 @@ myVariables.myBigInt =
 myVariables.myOtherBigInt = 8938912839128312938129132893128312912n;
 
 console.log("Modified values with same type of variable");
-for (variable in myVariables) {
+for (let variable in myVariables) {
     console.log(`${variable} : ${typeof myVariables[variable]}`);
 }
 
@@ -61,7 +61,7 @@ myVariables.myBigInt = true;
 myVariables.myOtherBigInt = 1;
 
 console.log("Modified variables with another type of variable");
-for (variable in myVariables) {
+for (let variable in myVariables) {
     console.log(`${variable} : ${typeof myVariables[variable]}`);
 }
 
@@ -80,7 +80,7 @@ const myConstants = {
     myOtherBigInt: 8938912839128312938129132893128312912n,
 };
 console.log("Constant values");
-for (constant in myConstants) {
+for (let constant in myConstants) {
     console.log(`${constant} : ${typeof myConstants[constant]}`);
 }
 
@@ -95,7 +95,7 @@ myConstants.myBigInt = true;
 myConstants.myOtherBigInt = 1;
 
 console.log("Trying to modify a constant value");
-for (constant in myConstants) {
+for (let constant in myConstants) {
     console.log(`${constant} : ${typeof myConstants[constant]}`);
     myConstants[constant] = "New value";
 }
