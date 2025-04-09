@@ -115,6 +115,13 @@ if (usuarios.has("criscriess")) {
 } else {
     console.log("el usuario no existe")
 }
+//otra opción es declarar el usuario como variable
+let user = "faycries"
+if(usuarios.has(user)){
+    console.log(`la contraseña de ${user}: ${usuarios.get(user)}`)
+}else{
+    console.log(`el usuario ${user} no existe`)
+}
 
 // 20. Explica con un comentario por qué Map permite claves que no sean solo strings (a diferencia de los objetos).
 // En los objetos tradicionales ({}), las claves siempre se convierten a string automáticamente.
@@ -122,6 +129,7 @@ if (usuarios.has("criscriess")) {
 const obj = {};
 obj[true] = "valor";        // La clave `true` se convierte en la string "true"
 obj[42] = "otro valor";     // La clave `42` se convierte en la string "42"
+console.log(obj)
 // En cambio, los Map sí permiten cualquier tipo de dato como clave, sin convertirlo:
 // - strings
 // - números
