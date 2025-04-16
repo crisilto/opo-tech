@@ -1,53 +1,101 @@
+# UVE: JavaScript Intermedio y React (2025)
+
+El objetivo de esta unidad es dominar JavaScript intermedio y React (versión 18+), incluyendo las nuevas features vigentes en 2025.
 
 ---
 
-## **UVE: JavaScript Intermedio y React**
+## 🧪 1. Promesas y `async/await`
 
-### **1. Promesas y `async/await`**
-#### **Conceptos Clave:**
-- Creación y manejo de promesas.
-- Uso de `async/await` para operaciones asincrónicas.
+### Conceptos Clave:
+- Qué es una promesa y estados (`pending`, `fulfilled`, `rejected`).
+- Crear promesas manualmente.
+- `.then()`, `.catch()` y `.finally()`.
+- `async/await` para simplificar el flujo asincrónico.
+- Manejo de errores asincrónicos con `try/catch`.
+- Promesas en paralelo con `Promise.all`, `Promise.allSettled`, `Promise.race`, `Promise.any`.
 
-#### **Ejercicios Recomendados:**
-1. Diseña un script que consuma datos de una API pública (ej. [JSONPlaceholder](https://jsonplaceholder.typicode.com/)) y los muestre en una tabla.
-2. Implementa un temporizador que simule una operación lenta y use promesas para indicar cuándo se ha completado.
-3. Escribe una función que haga múltiples llamadas a una API y combine los resultados en un solo array.
+### Ejercicios Recomendados:
+1. Script que consuma datos de una API como [JSONPlaceholder](https://jsonplaceholder.typicode.com/) y los muestre en una tabla.
+2. Temporizador que simule una operación lenta y use promesas para indicar cuándo se ha completado.
+3. Función que haga varias llamadas a APIs y combine los resultados en un solo array.
 
-#### **Fuentes de Aprendizaje:**
-- [MDN Web Docs: Promises](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [JavaScript.info: Async/Await](https://javascript.info/async-await)
-
----
-
-### **2. React desde Cero**
-#### **Conceptos Clave:**
-- Creación de componentes.
-- Manejo de estado con `useState`.
-- Props y comunicación entre componentes.
-
-#### **Ejercicios Recomendados:**
-1. Diseña una lista de tareas simple con React donde puedas añadir, eliminar y marcar elementos como completados.
-2. Implementa una app que consuma datos de una API y los muestre en un componente de lista.
-3. Crea una calculadora con React que maneje operaciones básicas.
-
-#### **Fuentes de Aprendizaje:**
-- [React Documentation](https://react.dev/learn)
-- [FreeCodeCamp: React Basics](https://www.freecodecamp.org/learn/front-end-libraries/react/)
+### Recursos Actualizados:
+- [MDN - Promesas](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [JavaScript.info - Async/Await](https://javascript.info/async-await)
+- [Frontend Masters - Asynchronous JavaScript Deep Dive](https://frontendmasters.com/)
 
 ---
 
-### **3. Rutas y Estado Global**
-#### **Conceptos Clave:**
-- Navegación con `react-router-dom`.
-- Manejo de estado global con `useContext` y `useReducer`.
+## 📁 2. React desde Cero (React 18+)
 
-#### **Ejercicios Recomendados:**
-1. Crea una app de notas con múltiples páginas (inicio, crear nota, ver nota).
-2. Diseña un carrito de compras funcional usando `useContext` para manejar el estado.
-3. Implementa una página de login que guarde el estado del usuario en contexto global.
+### Conceptos Clave:
+- JSX y su sintaxis.
+- Componentes funcionales.
+- `useState` y `useEffect` (Hooks esenciales).
+- Props y comunicación padre-hijo.
+- Eventos y manipulación de formularios.
+- Keys al renderizar listas.
+- Renderizado condicional.
 
-#### **Fuentes de Aprendizaje:**
-- [React Router Docs](https://reactrouter.com/)
-- [MDN Web Docs: Context API](https://react.dev/reference/react/Context)
+### Ejercicios Recomendados:
+1. Lista de tareas con funciones: añadir, eliminar, marcar como completado.
+2. App que consuma una API y muestre los datos en componentes.
+3. Calculadora básica funcional con React.
+
+### Recursos Actualizados:
+- [React Docs (2025)](https://react.dev/learn)
+- [Beta Docs con nuevas features](https://beta.reactjs.org/)
+- [FreeCodeCamp - React](https://www.freecodecamp.org/learn/front-end-development-libraries/react/)
+- [UI Framework recomendado: ShadCN (Tailwind + Radix)](https://ui.shadcn.com/)
 
 ---
+
+## 🔎 3. Rutas y Estado Global
+
+### Conceptos Clave:
+- Navegación con `react-router-dom@6.16+`.
+- Nested routes, loaders y layouts.
+- `useNavigate`, `useParams`, `useLocation`.
+- Manejo de estado global sin Redux:
+  - `useContext`
+  - `useReducer`
+- Prop drilling vs Context API.
+- Estados persistentes en localStorage / sessionStorage.
+
+### Ejercicios Recomendados:
+1. App de notas con rutas: inicio, crear, ver nota individual.
+2. Carrito de compras funcional usando `useContext`.
+3. Página de login con estado global y protección de rutas.
+
+### Recursos Actualizados:
+- [React Router Docs](https://reactrouter.com/en/main)
+- [React Context Docs](https://react.dev/reference/react/useContext)
+- [State Management without Redux](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
+
+---
+
+## 📊 4. Bonus: React Tools y Ecosistema
+
+### Conceptos Clave:
+- React DevTools (extensión oficial).
+- Composición vs Herencia en componentes.
+- Props.children.
+- Custom Hooks.
+- Deployment con Vite + Netlify / Vercel.
+- Testing con React Testing Library (básico).
+
+### Recursos Actualizados:
+- [Vite + React](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
+- [Netlify Docs](https://docs.netlify.com/)
+- [Vercel](https://vercel.com/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+---
+
+## ✅ Siguiente Paso
+
+Una vez dominado este plan:
+- Avanza hacia manejo avanzado de formularios con `react-hook-form`.
+- Aprende validación con Zod o Yup.
+- Explora bibliotecas de estado como Zustand o TanStack Query.
+- Aprende TypeScript con React.
