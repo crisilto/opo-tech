@@ -1,101 +1,120 @@
-# UVE: JavaScript Intermedio y React (2025)
+# JavaScript Intermedio y React Básico (UVE)
 
-El objetivo de esta unidad es dominar JavaScript intermedio y React (versión 18+), incluyendo las nuevas features vigentes en 2025.
-
----
-
-## 🧪 1. Promesas y `async/await`
-
-### Conceptos Clave:
-- Qué es una promesa y estados (`pending`, `fulfilled`, `rejected`).
-- Crear promesas manualmente.
-- `.then()`, `.catch()` y `.finally()`.
-- `async/await` para simplificar el flujo asincrónico.
-- Manejo de errores asincrónicos con `try/catch`.
-- Promesas en paralelo con `Promise.all`, `Promise.allSettled`, `Promise.race`, `Promise.any`.
-
-### Ejercicios Recomendados:
-1. Script que consuma datos de una API como [JSONPlaceholder](https://jsonplaceholder.typicode.com/) y los muestre en una tabla.
-2. Temporizador que simule una operación lenta y use promesas para indicar cuándo se ha completado.
-3. Función que haga varias llamadas a APIs y combine los resultados en un solo array.
-
-### Recursos Actualizados:
-- [MDN - Promesas](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [JavaScript.info - Async/Await](https://javascript.info/async-await)
-- [Frontend Masters - Asynchronous JavaScript Deep Dive](https://frontendmasters.com/)
+Este documento contiene la estructura de contenidos para la **Unidad Visual Estratégica (UVE)**, cuyo objetivo es fortalecer tus conocimientos de JavaScript hacia un nivel intermedio y prepararte para el desarrollo con React.
 
 ---
 
-## 📁 2. React desde Cero (React 18+)
+## 🔹 JavaScript Intermedio
 
-### Conceptos Clave:
-- JSX y su sintaxis.
+### **1. Asincronía Moderna**
+- Promesas (`Promise`): creación, resolución, rechazo.
+- `async/await`: sintaxis, errores.
+- `Promise.all`, `Promise.race`, `Promise.allSettled`, `Promise.any`.
+- Encadenamiento de promesas.
+- Manejo robusto de errores en asincronía.
+
+### **2. Manipulación Avanzada de Arrays y Objetos**
+- `.map()`, `.filter()`, `.reduce()`, `.reduceRight()`.
+- `.find()`, `.findIndex()`, `.some()`, `.every()`.
+- `.flat()`, `.flatMap()`, `.sort()`, `.reverse()`.
+- `.split()` y `.join()`.
+- `Object.entries()`, `Object.values()`, `Object.keys()`.
+- Operador spread/rest avanzado (`...`).
+- Destructuring profundo (arrays y objetos anidados).
+
+### **3. Funciones Avanzadas**
+- Funciones como valores de primera clase.
+- Funciones que retornan funciones.
+- Closures (cierres).
+- Currying.
+- IIFE (funciones autoejecutables).
+- `this` y contexto de ejecución.
+- `call`, `apply`, `bind`.
+
+### **4. Programación Orientada a Objetos Profunda**
+- Clases: métodos, propiedades, constructores.
+- Herencia con `extends`.
+- `super()` y llamada al constructor padre.
+- Métodos estáticos y privados (`#`).
+- Composición vs Herencia.
+
+### **5. Módulos ES6**
+- `export`, `import` (por defecto y con nombre).
+- Organización modular del código.
+- Introducción a bundlers modernos (Vite, Webpack).
+
+### **6. Patrones de Diseño Básicos**
+- Módulo.
+- Singleton.
+- Factory Function.
+- Observer (Pub/Sub).
+
+### **7. Gestor de Errores**
+- Tipos de errores: `TypeError`, `ReferenceError`, `RangeError`.
+- `try...catch` y `finally`.
+- Validaciones y errores personalizados con `class extends Error`.
+
+### **8. APIs del Navegador**
+- `fetch()` + `AbortController`.
+- `FormData` para manejar formularios.
+- `Clipboard API`, `Navigator`, `Geolocation`, `History`, `URLSearchParams`.
+
+### **9. Almacenamiento Web**
+- `localStorage`, `sessionStorage`, `IndexedDB` (intro).
+- JSON: `JSON.stringify()`, `JSON.parse()`.
+- Estrategias de persistencia en frontend.
+
+### **10. DOM y Eventos Profundos**
+- Delegación de eventos.
+- Propagación (`bubbling`, `capturing`).
+- `event.preventDefault()` y `stopPropagation()`.
+- `MutationObserver`, `IntersectionObserver`.
+- Formularios complejos: validaciones personalizadas, inputs dinámicos.
+
+---
+
+## 🔹 React Básico
+
+### **1. Fundamentos de React**
+- JSX y el árbol virtual.
 - Componentes funcionales.
-- `useState` y `useEffect` (Hooks esenciales).
-- Props y comunicación padre-hijo.
-- Eventos y manipulación de formularios.
-- Keys al renderizar listas.
-- Renderizado condicional.
+- Props y comunicación entre componentes.
+- `useState`: estado local.
 
-### Ejercicios Recomendados:
-1. Lista de tareas con funciones: añadir, eliminar, marcar como completado.
-2. App que consuma una API y muestre los datos en componentes.
-3. Calculadora básica funcional con React.
+### **2. Manejo de Datos**
+- `useEffect`: efectos secundarios.
+- Llamadas fetch con `async/await`.
+- Renderizado condicional y listas.
 
-### Recursos Actualizados:
-- [React Docs (2025)](https://react.dev/learn)
-- [Beta Docs con nuevas features](https://beta.reactjs.org/)
-- [FreeCodeCamp - React](https://www.freecodecamp.org/learn/front-end-development-libraries/react/)
-- [UI Framework recomendado: ShadCN (Tailwind + Radix)](https://ui.shadcn.com/)
+### **3. Formularios y Eventos**
+- Manejo de formularios con estado.
+- Inputs controlados.
+- Eventos y formularios anidados.
 
----
+### **4. Routing y Navegación**
+- `react-router-dom`: rutas, enlaces y parámetros.
+- Navegación programática.
+- Rutas protegidas (intro).
 
-## 🔎 3. Rutas y Estado Global
-
-### Conceptos Clave:
-- Navegación con `react-router-dom@6.16+`.
-- Nested routes, loaders y layouts.
-- `useNavigate`, `useParams`, `useLocation`.
-- Manejo de estado global sin Redux:
-  - `useContext`
-  - `useReducer`
-- Prop drilling vs Context API.
-- Estados persistentes en localStorage / sessionStorage.
-
-### Ejercicios Recomendados:
-1. App de notas con rutas: inicio, crear, ver nota individual.
-2. Carrito de compras funcional usando `useContext`.
-3. Página de login con estado global y protección de rutas.
-
-### Recursos Actualizados:
-- [React Router Docs](https://reactrouter.com/en/main)
-- [React Context Docs](https://react.dev/reference/react/useContext)
-- [State Management without Redux](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
+### **5. Estado Global Básico**
+- `useContext` para compartir datos entre componentes.
+- `useReducer` para estructuras más complejas.
+- Introducción a `Redux` (opcional).
 
 ---
 
-## 📊 4. Bonus: React Tools y Ecosistema
+## 🔹 Recomendaciones de Aprendizaje
 
-### Conceptos Clave:
-- React DevTools (extensión oficial).
-- Composición vs Herencia en componentes.
-- Props.children.
-- Custom Hooks.
-- Deployment con Vite + Netlify / Vercel.
-- Testing con React Testing Library (básico).
+### Documentación
+- [MDN Web Docs](https://developer.mozilla.org/es/docs/Web/JavaScript)
+- [JavaScript.info](https://javascript.info/)
+- [React.dev](https://react.dev/learn)
 
-### Recursos Actualizados:
-- [Vite + React](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
-- [Netlify Docs](https://docs.netlify.com/)
-- [Vercel](https://vercel.com/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+### Práctica
+- Codewars, Frontend Mentor, FreeCodeCamp
+- Mini proyectos con HTML, CSS y JS puro (antes de React)
+- Repetición de ejercicios con variantes
 
 ---
 
-## ✅ Siguiente Paso
-
-Una vez dominado este plan:
-- Avanza hacia manejo avanzado de formularios con `react-hook-form`.
-- Aprende validación con Zod o Yup.
-- Explora bibliotecas de estado como Zustand o TanStack Query.
-- Aprende TypeScript con React.
+✅ **Listo para avanzar a React Intermedio cuando domines este bloque.**
