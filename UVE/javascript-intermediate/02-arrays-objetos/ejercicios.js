@@ -8,7 +8,7 @@ const cuadrados = numeros.map(n => Math.pow(n, 2)) // n**2 <- es lo mismo y mas 
 console.log(cuadrados)
 
 // 🧩 2. Usa .filter() para quedarte solo con los nombres que tengan más de 4 letras.
-const nombres = ["fay", "cris", "lilith", "lidia"]
+const nombres = ["cris", "lilith", "kenneth"]
 const nombreLargo = nombres.filter(nombre => nombre.length > 4)
 console.log(nombreLargo)
 
