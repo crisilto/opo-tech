@@ -100,3 +100,108 @@ catGreet()
 // En vez de eso, heredan el 'this' del contexto externo donde fueron creadas.
 // Por eso, en el ejemplo, 'this' NO apunta al objeto 'cat',
 // sino al contexto global, donde no existe 'name'.
+
+// ===========================
+// EJERCICIOS EXTRA: FUNCIONES AVANZADAS
+// ===========================
+
+// 🧩 1. Crea una función `repetir(fn, veces)` que reciba una función y un número,
+// y ejecute la función la cantidad de veces indicada.
+// Ejemplo: repetir(() => console.log("hola"), 3)  // imprime "hola" 3 veces
+function repeat(fn, times) {
+    for (let i = 0; i < times; i++) {
+        fn()
+    }
+}
+repeat(() => console.log("hello"), 3)
+
+// 🧩 2. Crea una función `crearSaludador(nombre)` que devuelva otra función.
+// La función devuelta debe saludar usando el `nombre` guardado.
+// Ejemplo:
+// const saludaAna = crearSaludador("Ana")
+// saludaAna() // 👉 "Hola Ana"
+function createGreeting(name) {
+    return function () {
+        console.log("hello ", name)
+    }
+}
+const greetCris = createGreeting("cris")
+greetCris()
+
+// 🧩 3. Crea una función `crearContadorDesde(valorInicial)` que devuelva una función
+// que incremente desde ese valor cada vez que se llame.
+// Ejemplo:
+// const contador = crearContadorDesde(10)
+// contador() // 11
+// contador() // 12
+function createCountFrom(initialValue) {
+    return function () {
+        initialValue++
+        return initialValue
+    }
+}
+const count = createCountFrom(10)
+console.log(count())
+console.log(count())
+console.log(count())
+
+// 🧩 4. Crea una función `multiplicar(a)(b)(c)` usando currying que devuelva 
+// el producto de los 3.
+function multiply(a) {
+    return function (b) {
+        return function (c) {
+            return a * b * c
+        }
+    }
+}
+const myProduct = multiply(2)(3)(3)
+console.log(myProduct)
+
+// 🧩 5. Usa una IIFE para crear un módulo contador con dos métodos:
+//  `incrementar()` y `obtener()`.
+// El contador debe ser privado y no accesible desde fuera del módulo.
+const contador = (function () {
+    let valor = 0 // 🔒 variable privada
+    function incrementar() {
+        valor++;
+    }
+    function obtener() {
+        return valor
+    }
+    return {
+        incrementar,
+        obtener
+    }
+})()
+contador.incrementar()
+contador.incrementar()
+console.log(contador.obtener())
+console.log(contador.valor)
+
+// 🧩 6. Crea un objeto `perro` con una propiedad `nombre` y un método `ladrar()`
+// que use `this`. Guarda ese método en otra variable y ejecútalo con `call()` para que funcione.
+const dog = {
+    name: "oslo",
+    bark: function () {
+        console.log(`${this.name} is barking`)
+    }
+}
+const ladrar = dog.bark
+ladrar.call(dog)
+
+// 🧩 7. Usa `.apply()` para invocar una función que resta 4 números, pasando un array como argumento.
+function rest(a, b, c, d) {
+    return a - b - c - d
+}
+
+// 🧩 8. Usa `.bind()` para fijar el contexto de `this` en una función que accede a una propiedad `color`.
+
+
+// 🧩 9. BONUS: Crea un objeto `usuario` con una propiedad `nombre` y un método `presentarse()`.
+// Dentro del método, declara una función flecha que imprima `this.nombre`. ¿Qué imprime y por qué?
+
+// 🧩 10. BONUS 2: Escribe una función `crearLogger(prefijo)` que devuelva otra función.
+// La función devuelta debe imprimir en consola cualquier mensaje con ese prefijo.
+// Ejemplo:
+// const errorLogger = crearLogger("[ERROR]")
+// errorLogger("Archivo no encontrado") // 👉 [ERROR] Archivo no encontrado
