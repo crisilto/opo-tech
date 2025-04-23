@@ -193,15 +193,52 @@ ladrar.call(dog)
 function rest(a, b, c, d) {
     return a - b - c - d
 }
+const nums = [50, 12, 13, 5]
+const restResult = rest.apply(null, nums)
+console.log(restResult)
 
 // 🧩 8. Usa `.bind()` para fijar el contexto de `this` en una función que accede a una propiedad `color`.
-
+const car = {
+    color: "black",
+    description: function () {
+        return `the car is ${this.color}`
+    }
+}
+const carDescription = car.description.bind(car)
+console.log(carDescription()) // 👉 "the car is black"
 
 // 🧩 9. BONUS: Crea un objeto `usuario` con una propiedad `nombre` y un método `presentarse()`.
 // Dentro del método, declara una función flecha que imprima `this.nombre`. ¿Qué imprime y por qué?
+const user = {
+    name: "fay",
+    introduce() {
+        const arrow = () => {
+            console.log(`hi, i'm ${this.name}`)
+        }
+        arrow()
+    }
+}
+user.introduce() // 👉 "hi, i'm fay"
+// La función arrow no tiene su propio this, así que hereda el this del entorno donde fue creada, que en este caso es el método introduce.
+// Como introduce() es un método del objeto user, ahí this.name sí apunta correctamente a "fay".
+const usuario = {
+    nombre: "fay",
+    presentarse: () => {
+        console.log(`hola, soy ${this.nombre}`)
+    }
+}
+usuario.presentarse() // 👉 "hola, soy undefined"
+// this dentro de una función flecha declarada directamente en el objeto no apunta a usuario, sino al contexto externo, que no tiene .nombre.
 
 // 🧩 10. BONUS 2: Escribe una función `crearLogger(prefijo)` que devuelva otra función.
 // La función devuelta debe imprimir en consola cualquier mensaje con ese prefijo.
 // Ejemplo:
 // const errorLogger = crearLogger("[ERROR]")
 // errorLogger("Archivo no encontrado") // 👉 [ERROR] Archivo no encontrado
+function createLogger(prefix) {
+    return function (message) {
+        console.log(`[${prefix}]: ${message}`)
+    }
+}
+const errorLogger = createLogger("ERROR")
+errorLogger("not found")
