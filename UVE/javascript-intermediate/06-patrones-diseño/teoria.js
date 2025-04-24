@@ -114,4 +114,4 @@ noticias.suscribirse(data => {
 
 noticias.publicar("Nuevo evento publicado");
 
-// Ideal para sistemas de eventos, notificaciones, sockets, etc.
+// Ideal para sistemas de eventos, notificaciones, sockets, etc
