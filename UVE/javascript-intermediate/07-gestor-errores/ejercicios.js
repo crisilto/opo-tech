@@ -9,6 +9,7 @@
 // 🧩 1. Provoca un TypeError intencional llamando a un método en un valor null o undefined.
 //    - Luego atrápalo con try...catch y muestra el mensaje del error.
 
+
 // 🧩 2. Provoca un ReferenceError accediendo a una variable no declarada.
 //    - Captura el error y muestra su nombre y mensaje.
 
