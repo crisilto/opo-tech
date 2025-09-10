@@ -1,53 +1,120 @@
+# JavaScript Intermedio y React Básico (UVE)
+
+Este documento contiene la estructura de contenidos para la **Unidad Visual Estratégica (UVE)**, cuyo objetivo es fortalecer tus conocimientos de JavaScript hacia un nivel intermedio y prepararte para el desarrollo con React.
 
 ---
 
-## **UVE: JavaScript Intermedio y React**
+## 🔹 JavaScript Intermedio
 
-### **1. Promesas y `async/await`**
-#### **Conceptos Clave:**
-- Creación y manejo de promesas.
-- Uso de `async/await` para operaciones asincrónicas.
+### **1. Asincronía Moderna**
+- Promesas (`Promise`): creación, resolución, rechazo.
+- `async/await`: sintaxis, errores.
+- `Promise.all`, `Promise.race`, `Promise.allSettled`, `Promise.any`.
+- Encadenamiento de promesas.
+- Manejo robusto de errores en asincronía.
 
-#### **Ejercicios Recomendados:**
-1. Diseña un script que consuma datos de una API pública (ej. [JSONPlaceholder](https://jsonplaceholder.typicode.com/)) y los muestre en una tabla.
-2. Implementa un temporizador que simule una operación lenta y use promesas para indicar cuándo se ha completado.
-3. Escribe una función que haga múltiples llamadas a una API y combine los resultados en un solo array.
+### **2. Manipulación Avanzada de Arrays y Objetos**
+- `.map()`, `.filter()`, `.reduce()`, `.reduceRight()`.
+- `.find()`, `.findIndex()`, `.some()`, `.every()`.
+- `.flat()`, `.flatMap()`, `.sort()`, `.reverse()`.
+- `.split()` y `.join()`.
+- `Object.entries()`, `Object.values()`, `Object.keys()`.
+- Operador spread/rest avanzado (`...`).
+- Destructuring profundo (arrays y objetos anidados).
 
-#### **Fuentes de Aprendizaje:**
-- [MDN Web Docs: Promises](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [JavaScript.info: Async/Await](https://javascript.info/async-await)
+### **3. Funciones Avanzadas**
+- Funciones como valores de primera clase.
+- Funciones que retornan funciones.
+- Closures (cierres).
+- Currying.
+- IIFE (funciones autoejecutables).
+- `this` y contexto de ejecución.
+- `call`, `apply`, `bind`.
+
+### **4. Programación Orientada a Objetos Profunda**
+- Clases: métodos, propiedades, constructores.
+- Herencia con `extends`.
+- `super()` y llamada al constructor padre.
+- Métodos estáticos y privados (`#`).
+- Composición vs Herencia.
+
+### **5. Módulos ES6**
+- `export`, `import` (por defecto y con nombre).
+- Organización modular del código.
+- Introducción a bundlers modernos (Vite, Webpack).
+
+### **6. Patrones de Diseño Básicos**
+- Módulo.
+- Singleton.
+- Factory Function.
+- Observer (Pub/Sub).
+
+### **7. Gestor de Errores**
+- Tipos de errores: `TypeError`, `ReferenceError`, `RangeError`.
+- `try...catch` y `finally`.
+- Validaciones y errores personalizados con `class extends Error`.
+
+### **8. APIs del Navegador**
+- `fetch()` + `AbortController`.
+- `FormData` para manejar formularios.
+- `Clipboard API`, `Navigator`, `Geolocation`, `History`, `URLSearchParams`.
+
+### **9. Almacenamiento Web**
+- `localStorage`, `sessionStorage`, `IndexedDB` (intro).
+- JSON: `JSON.stringify()`, `JSON.parse()`.
+- Estrategias de persistencia en frontend.
+
+### **10. DOM y Eventos Profundos**
+- Delegación de eventos.
+- Propagación (`bubbling`, `capturing`).
+- `event.preventDefault()` y `stopPropagation()`.
+- `MutationObserver`, `IntersectionObserver`.
+- Formularios complejos: validaciones personalizadas, inputs dinámicos.
 
 ---
 
-### **2. React desde Cero**
-#### **Conceptos Clave:**
-- Creación de componentes.
-- Manejo de estado con `useState`.
+## 🔹 React Básico
+
+### **1. Fundamentos de React**
+- JSX y el árbol virtual.
+- Componentes funcionales.
 - Props y comunicación entre componentes.
+- `useState`: estado local.
 
-#### **Ejercicios Recomendados:**
-1. Diseña una lista de tareas simple con React donde puedas añadir, eliminar y marcar elementos como completados.
-2. Implementa una app que consuma datos de una API y los muestre en un componente de lista.
-3. Crea una calculadora con React que maneje operaciones básicas.
+### **2. Manejo de Datos**
+- `useEffect`: efectos secundarios.
+- Llamadas fetch con `async/await`.
+- Renderizado condicional y listas.
 
-#### **Fuentes de Aprendizaje:**
-- [React Documentation](https://react.dev/learn)
-- [FreeCodeCamp: React Basics](https://www.freecodecamp.org/learn/front-end-libraries/react/)
+### **3. Formularios y Eventos**
+- Manejo de formularios con estado.
+- Inputs controlados.
+- Eventos y formularios anidados.
+
+### **4. Routing y Navegación**
+- `react-router-dom`: rutas, enlaces y parámetros.
+- Navegación programática.
+- Rutas protegidas (intro).
+
+### **5. Estado Global Básico**
+- `useContext` para compartir datos entre componentes.
+- `useReducer` para estructuras más complejas.
+- Introducción a `Redux` (opcional).
+
+---
+
+## 🔹 Recomendaciones de Aprendizaje
+
+### Documentación
+- [MDN Web Docs](https://developer.mozilla.org/es/docs/Web/JavaScript)
+- [JavaScript.info](https://javascript.info/)
+- [React.dev](https://react.dev/learn)
+
+### Práctica
+- Codewars, Frontend Mentor, FreeCodeCamp
+- Mini proyectos con HTML, CSS y JS puro (antes de React)
+- Repetición de ejercicios con variantes
 
 ---
 
-### **3. Rutas y Estado Global**
-#### **Conceptos Clave:**
-- Navegación con `react-router-dom`.
-- Manejo de estado global con `useContext` y `useReducer`.
-
-#### **Ejercicios Recomendados:**
-1. Crea una app de notas con múltiples páginas (inicio, crear nota, ver nota).
-2. Diseña un carrito de compras funcional usando `useContext` para manejar el estado.
-3. Implementa una página de login que guarde el estado del usuario en contexto global.
-
-#### **Fuentes de Aprendizaje:**
-- [React Router Docs](https://reactrouter.com/)
-- [MDN Web Docs: Context API](https://react.dev/reference/react/Context)
-
----
+✅ **Listo para avanzar a React Intermedio cuando domines este bloque.**
