@@ -148,4 +148,3 @@ window.addEventListener('unhandledrejection', e => {
 // - Encadenar catch() al final de .then()
 // - Manejar errores específicos (ej. red, lógica, etc.)
 // - Validar respuestas (por ejemplo, verificar status en fetch)
-
