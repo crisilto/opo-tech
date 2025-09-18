@@ -1,6 +1,9 @@
 //funciones avanzadas
 
 //ciudadanos de primera clase
+//uso real: eventos, APIs, manipular funciones como datos.
+//ejemplo: En un botón de una web, puedes pasar una función “saludar” como callback cuando el usuario haga click.
+//button.addEventListener("click", greet)
 
 const greet = function (name) {
     console.log(`hola, ${name}`)
@@ -23,6 +26,10 @@ greet2("lilith")
 
 
 //arrow functions avanzadas
+//uso real: funciones cortas, arrays, callbacks simples.
+//ejemplo: Perfectas para map, filter, reduce en arrays.
+//const numbers = [1,2,3]
+//const doubled = numbers.map(n => n * 2) // [2,4,6]
 
 //retorno implícito
 const multiply = (a, b) => a * b
@@ -48,6 +55,8 @@ handler.arrowGreeting2();
 
 
 //IIFE (inmediately invoke function expresion) (expresión de función invocada inmediatamente)
+//uso real: aislar código (poco usado en proyectos modernos, salvo librerías viejas).
+//ejemplo: Para proteger variables y que no contaminen el scope global. jQuery
 
 //IIFE clásico
 (function () {
@@ -60,6 +69,9 @@ handler.arrowGreeting2();
 
 
 //parámetros rest (...)
+//uso real: manejar arrays de forma flexible.
+//ejemplo: En una calculadora: sum(10,20,30,40) → no necesitas saber cuántos números vendrán.
+
 function sum(...numbers) {
     let result = 0
     for (let number of numbers) {
@@ -72,6 +84,10 @@ console.log(sum(10, 25))
 
 
 //operador spread (...)
+//uso real: manejar arrays de forma flexible.
+//ejemplo: Copiar arrays sin mutarlos:
+//const copy = [...numbers]
+
 const numbers = [1, 2, 3]
 function sumWithSpread(a, b, c) {
     return a + b + c
@@ -79,7 +95,12 @@ function sumWithSpread(a, b, c) {
 console.log(sumWithSpread(1, 2, 3)) //sin spread
 console.log(sumWithSpread(...numbers)) //con spread
 
+
 //closures (clausuras): conserva el scope de la función que está conteniendo
+//uso real: encapsular estados privados.
+//ejemplo: Para contadores privados o estados internos sin exponer variables globales.
+//En un carrito de compra: mantener cuántos ítems llevas.
+
 function createCounter() {
     let counter = 0
     return function () {
@@ -97,6 +118,9 @@ counter2()
 
 
 //recursividad (función que se llama a sí misma)
+//uso real: recorrer árboles, estructuras anidadas.
+//ejemplo: Buscar en una estructura de carpetas o árbol de comentarios.
+
 function factorial(n) {
     if (n <= 1) {
         return 1
@@ -108,6 +132,8 @@ console.log(factorial(5))
 
 //funciones parciales
 //idea de dividir una función con varios parámetros en funciones más pequeñas que reciben parte de los parámetros, y retornan una nueva función que espera los siguientes parámetros
+//uso real: reusar funciones en programación funcional.
+//ejemplo: Si tienes que sumar siempre con el mismo número base (ejemplo: añadir IVA fijo del 21%).
 
 function partialSum(a) {
     return function (b, c) {
@@ -120,6 +146,8 @@ console.log(sumWith(4, 3))
 
 
 //currying
+//uso real: reusar funciones en programación funcional.
+//ejemplo:fijar primero un parámetro global (tasa, divisa, etc.) y luego reusar la función en distintas partes.
 
 function currySum(a) {
     return function (b) {
@@ -138,6 +166,8 @@ console.log(sumAB(5)(7))
 
 
 //callbacks-> pasar funciones como argumentos para que sean ejecutadas después de que otra operación haya terminado
+//uso real: eventos, APIs, manipular funciones como datos.
+//ejemplo: Antes de Promesas/async, era la forma de manejar eventos asíncronos (ej: leer un archivo, esperar a que cargue una imagen, etc.).
 
 function processData(data, callback){
     const result = sum(...data)
