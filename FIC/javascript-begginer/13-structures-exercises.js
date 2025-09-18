@@ -277,12 +277,56 @@ console.log(`Total de ventas: ${totalVentas.toFixed(2)}€`)
 //         Convierte el array en un Set para eliminar duplicados.
 //         Usa un Map para asociar cada estudiante con su calificación (por ejemplo, 85).
 //         Calcula la calificación promedio.
+const students = ['Alice', 'Bob', 'Charlie', 'Alice', 'David', 'Bob']
+const uniqueStudents = [...new Set(students)]
+
+function randomNumber() {
+    const min = 1
+    const max = 100
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+const grades = new Map()
+uniqueStudents.forEach(student => {
+    let randomGrade = randomNumber()
+    grades.set(student, randomGrade)
+})
+
+let total = 0
+grades.forEach(grade => {
+    total += grade
+})
+
+const average = total / grades.size
+
+console.log("Students: ", uniqueStudents)
+console.log("Grades: ", [...grades.entries()])
+console.log("Average grade: ", average)
 
 //     Calendario:
 //         Crea un Map que asocie números de meses (1-12) con sus nombres.
 //         Usa un array para representar los días de la semana (["Lunes", "Martes", ..., "Domingo"]).
 //         Usa .get() para mostrar el nombre de un mes específico.
 //         Añade al Map una clave para estaciones del año con un array de meses correspondientes (por ejemplo, "verano" -> [6, 7, 8]).
+const monthsNames = new Map([
+    [1, "Enero"], [2, "Febrero"], [3, "Marzo"], [4, "Abril"],
+    [5, "Mayo"], [6, "Junio"], [7, "Julio"], [8, "Agosto"],
+    [9, "Septiembre"], [10, "Octubre"], [11, "Noviembre"], [12, "Diciembre"]
+])
+
+const weekDays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
+const selectedMonthNumber = 11
+const selectedMonthName = monthsNames.get(selectedMonthNumber)
+console.log(`month ${selectedMonthNumber}: ${selectedMonthName}`)
+
+monthsNames.set("spring", [3, 4, 5])
+monthsNames.set("summer", [6, 7, 8])
+monthsNames.set("fall", [9, 10, 11])
+monthsNames.set("winter", [12, 1, 2])
+
+const summerMonths = monthsNames.get("summer")
+console.log(`summer months: ${summerMonths.map(m => monthsNames.get(m))}`)
 
 // Desafíos adicionales
 
@@ -290,6 +334,7 @@ console.log(`Total de ventas: ${totalVentas.toFixed(2)}€`)
 //         Crea un array con las URLs de las páginas visitadas (algunas repetidas).
 //         Usa un Set para eliminar duplicados.
 //         Usa un Map para asociar cada URL con la cantidad de veces que fue visitada.
+
 
 //     Encuesta:
 //         Crea un Map para almacenar opciones de una encuesta (claves) y el número de votos que cada opción ha recibido (valores).
