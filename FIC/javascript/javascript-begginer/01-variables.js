@@ -22,3 +22,6 @@ console.log(helloWorld3)
 
 //Error
 //helloWorld3 = "Hello again, world! 3"
+
+let variable1;
+console.log(variable1)
