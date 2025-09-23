@@ -79,8 +79,13 @@ console.log(myFruitCount)
 // qué transformar,
 // qué acumular.
 
+
 // 2. Dado un array de números, crea uno nuevo con dichos números elevados al cubo 
 // y filtra solo los números pares
+const square = numbers.map(num => num * num)
+console.log(square)
+const squareEvens = square.filter(num => num % 2 === 0)
+console.log(squareEvens)
 
 // 3. Utiliza flat y flatMap para crear un ejemplo
 
