@@ -88,20 +88,100 @@ const squareEvens = square.filter(num => num % 2 === 0)
 console.log(squareEvens)
 
 // 3. Utiliza flat y flatMap para crear un ejemplo
+const shein = [["woman", "man"], ["home"], ["kids", ["toys", "wear"]]]
+// const sheinFlat = shein.flat(shein.length + 1)
+const sheinFlat = shein.flat(Infinity)
+console.log(sheinFlat)
+
+const users = ["user1 user2", "user3 user4 user5"]
+const userSplit = users.flatMap(user => user.split(" "))
+console.log(userSplit)
 
 // 4. Ordena un array de números de mayor a menor
+const minorToMajor = numbers.sort((a, b) => a - b)
+console.log(minorToMajor)
+
+const majorToMinor = numbers.sort((a, b) => b - a)
+console.log(majorToMinor)
 
 // 5. Dados dos sets, encuentra la unión, intersección y diferencia de ellos
+const usersA = new Set([1, 2, 4])
+const usersB = new Set([2, 3, 4, 5])
+
+const unionArr = [...new Set([...usersA, ...usersB])].sort((a, b) => a - b)
+const union = new Set(unionArr)
+console.log(union)
+
+const intersection = new Set([...usersA].filter(e => usersB.has(e)))
+console.log(intersection)
+
+const difference = new Set([...usersA].filter(e => !usersB.has(e)))
+console.log(difference)
 
 // 6. Itera los resultados del ejercicio anterior
+console.log("Union:")
+union.forEach(e => console.log(e))
+console.log("Intersección:")
+intersection.forEach(e => console.log(e))
+console.log("Diferencia:")
+difference.forEach(e => console.log(e))
 
 // 7. Crea un mapa que almacene información se usuarios (nombre, edad y email) 
 // e itera los datos
+const usersMap = new Map([
+    ["user1", {
+        name: "lilith",
+        age: 4,
+        email: "lilith@email.es"
+    }],
+    ["user2", {
+        name: "cristina",
+        age: 27,
+        email: "cristina@email.es"
+    }],
+    ["user3", {
+        name: "fay",
+        age: 26,
+        email: "fay@email.es"
+    }]
+])
+
+console.log(usersMap)
+usersMap.forEach((data, id) => {
+    console.log(`${id} → ${data.name}, ${data.age}, ${data.email}`)
+})
 
 // 8. Dado el mapa anterior, crea un array con los nombres
+let namesUsers = []
+usersMap.forEach((data, id) => {
+    namesUsers.push(data.name)
+})
+console.log(namesUsers)
 
 // 9. Dado el mapa anterior, obtén un array con los email de los usuarios
 //  mayores de edad y transfórmalo a un set
+let adultUsersEmail = []
+usersMap.forEach((data, id) => {
+    if (data.age > 18) {
+        adultUsersEmail.push(data.email)
+    }
+})
+console.log(adultUsersEmail)
 
 // 10. Transforma el mapa en un objeto, a continuación, transforma el objeto en un mapa 
 // con clave el email de cada usuario y como valor todos los datos del usuario
+let usersObject = Object.fromEntries(usersMap)
+console.log(usersObject)
+// let usersMapByEmail = new Map(
+//     Object.values(usersObject).map(user => [user.email, user])
+// )
+// console.log(usersMapByEmail)
+let usersMapByEmail = new Map(
+    [...usersMap].map(([id, user]) => [user.email, user])
+)
+//...usersMap convierte el Map en un array de pares 
+//.map(([id, user]) => [user.email, user]) para crear nuevos pares, donde la clave es el email
+//se crea un nuevo Map con esos pares
+usersMapByEmail.forEach((data, email) => {
+    console.log(`${email} → ${data.name}, ${data.age}`)
+})
