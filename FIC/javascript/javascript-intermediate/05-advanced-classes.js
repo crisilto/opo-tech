@@ -329,4 +329,4 @@ const userProxy = new Proxy(user, {
     }
 })
 console.log(userProxy.name)
-console.log(userProxy.password)
+// console.log(userProxy.password) (lanza error)
