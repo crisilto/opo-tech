@@ -304,3 +304,82 @@ console.log(accountProxy.balance)
 // accountProxy.balance = -10 | Error: El saldo no puede ser negativo
 
 //proxy-> portero inteligente que vigila cada acción sobre un objeto y decide qué permitir, qué bloquear o qué registrar
+
+
+
+//EJERCICIOS EXTRA
+
+// 1️⃣ Agrega un método al prototipo de una función constructora
+
+// Enunciado:
+// Crea una función constructora Book(title, author, pages).
+// Agrega al prototipo un método describe() que devuelva:
+// "Title: ..., Author: ..., Pages: ...".
+
+// Extra: después de crear varias instancias, agrega otro método isLong() que devuelva true si tiene más de 300 páginas.
+
+// 2️⃣ Crea un objeto que herede de otro
+
+// Enunciado:
+// Crea un objeto literal vehicle con propiedades wheels y move().
+// Luego crea bike y car usando Object.create(vehicle), asigna propiedades propias y prueba que heredan move().
+
+// 3️⃣ Método de instancia
+
+// Enunciado:
+// Crea una clase Laptop con brand y ram.
+// Define un método de instancia specs() que muestre "Brand: ..., RAM: ...".
+// Crea varias instancias y llama al método.
+
+// 4️⃣ Usa getters y setters
+
+// Enunciado:
+// Crea un objeto literal rectangle con propiedades width y height.
+// Define un getter area que devuelva el área y un setter square que permita establecer width y height al mismo valor.
+
+// 5️⃣ Usa Object.assign
+
+// Enunciado:
+// Crea objetos baseConfig = {theme: "light"} y userConfig = {language: "es"}.
+// Usa Object.assign para combinar ambos en un nuevo objeto finalConfig.
+
+// 6️⃣ Clase abstracta simulada
+
+// Enunciado:
+// Crea una clase Shape que no pueda instanciarse directamente.
+// Define un método area() que lance un error si no se implementa en subclases.
+
+// Extra: Crea subclases Square y Circle que implementen area().
+
+// 7️⃣ Polimorfismo
+
+// Enunciado:
+// Crea dos clases que hereden de Shape (Square y Circle).
+// Define un método describe() en cada una que devuelva información diferente pero usando el mismo nombre de método.
+// Crea instancias y llama a describe() para ver el comportamiento polimórfico.
+
+// 8️⃣ Implementa un Mixin
+
+// Enunciado:
+// Crea un mixin LoggerMixin con un método log() que imprima:
+// "Logging: ...".
+// Aplica el mixin a las clases Square y Circle del ejercicio anterior.
+
+// 9️⃣ Singleton
+
+// Enunciado:
+// Crea una clase Database que solo permita una instancia.
+// Define propiedades como host y port.
+// Prueba que aunque crees dos instancias, ambos objetos sean idénticos.
+
+// 🔟 Proxy
+
+// Enunciado:
+// Crea una clase User con propiedades name y age.
+// Crea un proxy que:
+
+// No permita edades menores a 0 ni mayores a 120
+
+// Muestre un mensaje cada vez que se accede a name o age
+
+// Permita modificar los valores válidos
