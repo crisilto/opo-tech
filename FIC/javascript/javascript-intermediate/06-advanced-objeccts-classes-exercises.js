@@ -284,7 +284,7 @@ console.log(account.balance) // 100
 //evitar que se pueda poner saldo negativo
 
 const handler = { //define trampas (get, set) que interceptan operaciones
-    get(target, property) { 
+    get(target, property) {
         console.log(`se accede a la propiedad ${property}`)
         return target[property]
     },
@@ -315,14 +315,54 @@ console.log(accountProxy.balance)
 // Crea una función constructora Book(title, author, pages).
 // Agrega al prototipo un método describe() que devuelva:
 // "Title: ..., Author: ..., Pages: ...".
-
+function Book(title, author, pages) {
+    this.title = title,
+        this.author = author
+    this.pages = pages
+}
+Book.prototype.describe = function () {
+    return `title: ${this.title}, author: ${this.author}, pages: ${this.pages}`
+}
+const book1 = new Book("hp", "jk", 530)
+console.log(book1.describe())
 // Extra: después de crear varias instancias, agrega otro método isLong() que devuelva true si tiene más de 300 páginas.
+const book2 = new Book("hp", "jk", 230)
+const book3 = new Book("hp", "jk", 530)
+const book4 = new Book("hp", "jk", 530)
+Book.prototype.isLong = function () {
+    return this.pages > 300
+}
+const books = [book1, book2, book3, book4]
+books.forEach(book => {
+    console.log(book.isLong())
+})
 
 // 2️⃣ Crea un objeto que herede de otro
 
 // Enunciado:
 // Crea un objeto literal vehicle con propiedades wheels y move().
 // Luego crea bike y car usando Object.create(vehicle), asigna propiedades propias y prueba que heredan move().
+let vehicle = {
+    wheels: 0,
+    move: function () {
+        return `the vehicle with ${this.wheels} wheels is moving`
+    }
+}
+// bike hereda de vehicle
+let bike = Object.create(vehicle)
+bike.wheels = 2
+// car hereda de vehicle
+let car = Object.create(vehicle)
+car.wheels = 4
+// Pruebas de herencia
+console.log(bike.wheels)          // 2
+console.log(bike.move())          // "the vehicle with 2 wheels is moving"
+console.log(car.wheels)           // 4
+console.log(car.move())           // "the vehicle with 4 wheels is moving"
+// Comprobar si realmente heredan
+console.log(Object.getPrototypeOf(bike) === vehicle) // true
+console.log(Object.getPrototypeOf(car) === vehicle)  // true
+
 
 // 3️⃣ Método de instancia
 
@@ -330,6 +370,22 @@ console.log(accountProxy.balance)
 // Crea una clase Laptop con brand y ram.
 // Define un método de instancia specs() que muestre "Brand: ..., RAM: ...".
 // Crea varias instancias y llama al método.
+class Laptop {
+    constructor(brand, ram) {
+        this.brand = brand
+        this.ram = ram
+    }
+    specs() {
+        console.log(`brand: ${this.brand}, RAM: ${this.ram}`)
+    }
+}
+const laptop1 = new Laptop("mac air pro 2", 16)
+const laptop2 = new Laptop("mac air pro 1", 8)
+const laptop3 = new Laptop("mac air pro 3", 32)
+laptop1.specs()
+laptop2.specs()
+laptop3.specs()
+
 
 // 4️⃣ Usa getters y setters
 
@@ -337,19 +393,80 @@ console.log(accountProxy.balance)
 // Crea un objeto literal rectangle con propiedades width y height.
 // Define un getter area que devuelva el área y un setter square que permita establecer width y height al mismo valor.
 
+let rectangle = {
+    width: 0,
+    height: 0,
+    get area() {
+        return this.width * this.height
+    },
+    set square(value) {
+        this.width = value
+        this.height = value
+    }
+}
+rectangle.square = 5
+console.log(rectangle.width)
+console.log(rectangle.height)
+console.log(rectangle.area)
+
 // 5️⃣ Usa Object.assign
 
 // Enunciado:
 // Crea objetos baseConfig = {theme: "light"} y userConfig = {language: "es"}.
 // Usa Object.assign para combinar ambos en un nuevo objeto finalConfig.
+let baseConfig = {
+    theme: "light"
+}
+let userConfig = {
+    language: "es"
+}
+let finalConfig = Object.assign({}, baseConfig, userConfig)
+//let finalConfig = { ...baseConfig, ...userConfig } <-- más usado actualmente
+console.log(finalConfig)
 
 // 6️⃣ Clase abstracta simulada
 
 // Enunciado:
 // Crea una clase Shape que no pueda instanciarse directamente.
 // Define un método area() que lance un error si no se implementa en subclases.
+class Shape {
+    constructor() {
+        if (new.target === Shape) {
+            throw new Error("abstract class")
+        }
+    }
+    area() {
+        throw new Error("method for subclasses")
+    }
+    describe() {
+        throw new Error("method for subclasses")
+    }
+}
+//const shape = new Shape()
 
 // Extra: Crea subclases Square y Circle que implementen area().
+class Square extends Shape {
+    constructor(side) {
+        super()
+        this.side = side
+    }
+    area() {
+        return this.side * this.side
+    }
+}
+const square = new Square(5)
+console.log(square.area())
+class Circle extends Shape {
+    constructor(radius) {
+        super()
+        this.radius = radius
+    }
+    area() {
+        return (Math.PI * (Math.pow(this.radius, 2))).toFixed(2)
+    }
+}
+const circle = new Circle(5)
+console.log(circle.area())
 
 // 7️⃣ Polimorfismo
 
@@ -357,6 +474,14 @@ console.log(accountProxy.balance)
 // Crea dos clases que hereden de Shape (Square y Circle).
 // Define un método describe() en cada una que devuelva información diferente pero usando el mismo nombre de método.
 // Crea instancias y llama a describe() para ver el comportamiento polimórfico.
+Square.prototype.describe = function () {
+    return `this is a square with ${this.area()} as area`
+}
+Circle.prototype.describe = function () {
+    return `this is a circle with ${this.area()} as area`
+}
+console.log(square.describe())
+console.log(circle.describe())
 
 // 8️⃣ Implementa un Mixin
 
@@ -364,6 +489,15 @@ console.log(accountProxy.balance)
 // Crea un mixin LoggerMixin con un método log() que imprima:
 // "Logging: ...".
 // Aplica el mixin a las clases Square y Circle del ejercicio anterior.
+const LoggerMixin = {
+    log() {
+        console.log(`Logging the area... ${this.area()}`)
+    }
+}
+Object.assign(Square.prototype, LoggerMixin)
+Object.assign(Circle.prototype, LoggerMixin)
+square.log()
+circle.log()
 
 // 9️⃣ Singleton
 
@@ -371,11 +505,30 @@ console.log(accountProxy.balance)
 // Crea una clase Database que solo permita una instancia.
 // Define propiedades como host y port.
 // Prueba que aunque crees dos instancias, ambos objetos sean idénticos.
+class Database {
+    constructor(host, port) {
+        if (Database.instance) {
+            return Database.instance
+        }
+        this.host = host
+        this.port = port
+        Database.instance = this
+    }
+}
+const db1 = new Database(1234, 4060)
+const db2 = new Database(5678, 4030)
+console.log(db1 === db2)
 
 // 🔟 Proxy
 
 // Enunciado:
 // Crea una clase User con propiedades name y age.
+class User1 {
+    constructor(name, age) {
+        this.name = name
+        this.age = age
+    }
+}
 // Crea un proxy que:
 
 // No permita edades menores a 0 ni mayores a 120
@@ -383,3 +536,28 @@ console.log(accountProxy.balance)
 // Muestre un mensaje cada vez que se accede a name o age
 
 // Permita modificar los valores válidos
+const userHandler = {
+    // get intercepta los accesos → loguea cada vez que se consulta una propiedad.
+    get(target, property) {
+        console.log(`se accede a la propiedad ${property}`)
+        return target[property]
+    },
+    // set valida los cambios antes de asignarlos → bloquea edades inválidas.
+    set(target, property, value) {
+        if (property === "age" && (value < 0 || value > 120)) {
+            throw new Error("edad no permitida")
+        }
+        console.log(`se cambia ${property} a ${value}`)
+        target[property] = value
+        return true
+    }
+}
+
+// Instancia del Proxy
+const user1_1 = new Proxy(new User1("fay", 26), userHandler)
+
+console.log(user1_1.name) // Se accede a la propiedad name → "fay"
+console.log(user1_1.age)  // Se accede a la propiedad age → 26
+user1_1.age = 40         // Se cambia age a 40
+console.log(user1_1.age) // Se accede a la propiedad age → 40
+// user1_1.age = -5      // ❌ Error: Edad no permitida
