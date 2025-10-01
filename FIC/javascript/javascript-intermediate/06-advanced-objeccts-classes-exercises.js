@@ -554,7 +554,8 @@ const userHandler = {
 }
 
 // Instancia del Proxy
-const user1_1 = new Proxy(new User1("fay", 26), userHandler)
+const user1_1 = new User1("fay", 26)
+const proxyUser1 = new Proxy(user1_1, userHandler)
 
 console.log(user1_1.name) // Se accede a la propiedad name → "fay"
 console.log(user1_1.age)  // Se accede a la propiedad age → 26
