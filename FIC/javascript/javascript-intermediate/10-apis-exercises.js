@@ -1,4 +1,21 @@
-// 1. Realiza una petición GET con fetch() a JSONPlaceholder y muestra en la consola la lista de publicaciones
+// 1. Realiza una petición GET con fetch() a JSONPlaceholder 
+// y muestra en la consola la lista de publicaciones
+
+//hacemos la petición GET a la URL de la API
+fetch("https://jsonplaceholder.typicode.com/posts")
+    //fetch devuelve una Promesa que se resuelve con un objeto Response
+    .then(response => {
+        //convertimos la respuesta en JSON (también devuelve una Promesa)
+        return response.json()
+    })
+    .then(data => {
+        //aquí ya tenemos los datos procesados (un array con las publicaciones)
+        console.log("publicaciones: ", data)
+    })
+    .catch(err => {
+        //captura errores de red o problemas al procesar la respuesta
+        console.error("error al consumir la API: ", err)
+    })
 
 // 2. Modifica el ejercicio anterior para que verifique si la respuesta es correcta usando response.ok. Si no lo es, lanza y muestra un error
 
