@@ -1,162 +1,163 @@
-//manejo de APIs
+// ============================
+// MANEJO DE APIs EN JAVASCRIPT
+// ============================
 
-//APIs REST (HTTP + URLs + JSON)
-//REST Representational State Transfer:
-//estilo arquitectónico que permite que las aplicaciones se comuniquen entre sí
-//a través de peticiones a URLs específicas, usando métodos y devolviendo datos
-//usualmente en formato JSON (javascript object notation), objeto para poder intercambiar datos.
+// Las APIs REST permiten que nuestras aplicaciones se comuniquen con servidores
+// usando HTTP y URLs específicas, normalmente intercambiando datos en formato JSON.
 
-//métodos HTTP
-//GET: solicitar datos
-//POST: enviar datos que van a acabar creando un nuevo recurso 
-//PUT: enviar datos pero que van a actualizar un recurso
-//DELETE: eliminar un recurso
+// ----------------------------------------
+// 1️⃣ MÉTODOS HTTP PRINCIPALES
+// ----------------------------------------
+// GET:   Solicitar datos
+// POST:  Enviar datos para crear un recurso
+// PUT:   Enviar datos para reemplazar un recurso completo
+// PATCH: Enviar datos para actualizar parcialmente un recurso
+// DELETE: Eliminar un recurso
 
-//códigos de respuesta HTTP
-//200 OK indica éxito
-//201 OK y recurso creado
-//400 error por parte del cliente
-//404 se ha solicitado algo que no existe
-//500 error por parte del servidor
+// ----------------------------------------
+// 2️⃣ CÓDIGOS DE RESPUESTA HTTP
+// ----------------------------------------
+// 200 OK       -> Solicitud exitosa
+// 201 Created  -> Recurso creado con éxito
+// 400 Bad Request -> Error del cliente (malos datos)
+// 404 Not Found   -> Recurso no encontrado
+// 500 Internal Server Error -> Error en el servidor
 
-//consumir una API
-fetch("https://jsonplaceholder.typicode.com/posts")
-    .then(response => {
-        //transforma la respuesta a JSON
-        return response.json()
-    })
-    .then(data => {
-        //procesa los datos/los muestra
-        console.log(data)
-    })
-    .catch(err => {
-        //captura errores
-        console.log("error, " + err)
-    })
+// ----------------------------------------
+// 3️⃣ CONSUMIR UNA API CON fetch() Y PROMESAS
+// ----------------------------------------
+fetch("https://jsonplaceholder.typicode.com/posts") // URL de la API
+  .then(response => {
+    // La respuesta no es directamente JSON, sino un objeto Response
+    // Debemos transformarlo a JSON, lo que devuelve otra promesa
+    return response.json()
+  })
+  .then(data => {
+    // Aquí ya tenemos los datos procesados (array de posts)
+    console.log("Posts recibidos:", data)
+  })
+  .catch(error => {
+    // Captura cualquier error en la llamada o en el parsing JSON
+    console.error("Error al consumir la API:", error)
+  })
 
-
-//lo mismo pero con async await
+// ----------------------------------------
+// 4️⃣ CONSUMIR UNA API CON ASYNC/AWAIT
+// ----------------------------------------
 async function getPosts() {
-    try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts")
-        const data = await response.json()
-        console.log(data)
-    } catch (error) {
-        console.log("error, " + err)
-    }
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts")
+    
+    // Comprobamos si la respuesta fue exitosa
+    if (!response.ok) throw new Error(`HTTP error: ${response.status}`)
+
+    const data = await response.json()
+    console.log("Posts recibidos con async/await:", data)
+  } catch (error) {
+    console.error("Error al consumir la API:", error)
+  }
 }
 getPosts()
 
-//solicitud post
+// ----------------------------------------
+// 5️⃣ PETICIÓN POST: CREAR DATOS
+// ----------------------------------------
 async function createPost() {
-    try {
-        const newPost = { //petición enviándole nuevo post
-            userId: 1,
-            title: "este es el titulo de mi post",
-            body: "este es el cuerpo de mi post"
-        }
-        //petición pasándola a JSON
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newPost)
-        })
-        const data = await response.json()
-        console.log(data)
-    } catch (error) {
-        console.log("error, " + err)
+  try {
+    const newPost = {
+      userId: 1,
+      title: "Este es el título de mi post",
+      body: "Este es el cuerpo de mi post"
     }
+
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST", // Crear nuevo recurso
+      headers: {
+        "Content-Type": "application/json" // Avisamos que enviamos JSON
+      },
+      body: JSON.stringify(newPost) // Convertimos el objeto JS a JSON
+    })
+
+    const data = await response.json()
+    console.log("Post creado:", data)
+  } catch (error) {
+    console.error("Error al crear el post:", error)
+  }
 }
 createPost()
 
+// ----------------------------------------
+// 6️⃣ MANEJO DE ERRORES HTTP
+// ----------------------------------------
+async function getInvalidResource() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/invalidURL")
 
-//Herramientas para realizar peticiones HTTP
-//Postman
-//Apidog
-//ThunderClient (extensión VSCode)
+    // Si la respuesta no es 2xx, lanzamos error
+    if (!response.ok) throw new Error(`HTTP error: ${response.status}`)
 
-
-//manejo de errores
-
-fetch("https://jsonplaceholder.typicode.com/crisilto")
-    .then(response => {
-        if (!response.ok) {
-            throw Error("Status http: " + response.status)
-        }
-        return response.json()
-    })
-    .catch(err => {
-        console.log("error, " + err)
-    })
-
-//métodos HTTP adicionales
-//PATCH: actualizar parcialmente un recurso (con PUT es el recurso completo)
-//OPTIONS: permite consultar al servidor qué métodos HTTP están permitidos para un recurso
-
-//update parcial con PATCH
-async function partialPostUpdate() {
-    try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts/10", {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ title: "este es el nuevo titulo de mi post" })
-        })
-        const data = await response.json()
-        console.log(data)
-    } catch (error) {
-        console.log("error, " + err)
-    }
+    const data = await response.json()
+    console.log(data)
+  } catch (error) {
+    console.error("Error en la solicitud:", error)
+  }
 }
-partialPostUpdate()
+getInvalidResource()
 
+// ----------------------------------------
+// 7️⃣ ACTUALIZACIÓN PARCIAL CON PATCH
+// ----------------------------------------
+async function updatePostTitle() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts/10", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "Nuevo título del post" }) // solo cambiamos el título
+    })
 
-//autenticación
-//https://home.openweathermap.org/api_keys
+    const data = await response.json()
+    console.log("Post actualizado parcialmente:", data)
+  } catch (error) {
+    console.error("Error al actualizar el post:", error)
+  }
+}
+updatePostTitle()
+
+// ----------------------------------------
+// 8️⃣ EJEMPLO DE AUTENTICACIÓN
+// ----------------------------------------
 async function getWeather(city) {
-    const apiKey = "7aebc3fa60d2b7b6ee0b2407b8719586"
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+  const apiKey = "7aebc3fa60d2b7b6ee0b2407b8719586"
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
 
-    try {
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
-    } catch (error) {
-        console.log("error, " + err)
-    }
+  try {
+    const response = await fetch(url)
+    if (!response.ok) throw new Error(`HTTP error: ${response.status}`)
+
+    const data = await response.json()
+    console.log(`Clima en ${city}:`, data)
+  } catch (error) {
+    console.error("Error al consultar el clima:", error)
+  }
 }
 getWeather("Madrid")
 
-//otros métodos de autenticación y autorización
-//bearer tokens
-//jwt
-
-//versionado de APIs
-
-//otras APIs
-//https://api.example.com/v1/resources
-//https://api.example.com/v2/resources
-
-//https://pokeapi.co/
-
+// ----------------------------------------
+// 9️⃣ CONSUMO DE OTRAS APIs (ej: Pokémon)
+// ----------------------------------------
 async function getPokemon(pokemon) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
 
-    // https://pokeapi.co
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+  try {
+    const response = await fetch(url)
+    if (!response.ok) throw new Error(`HTTP error: ${response.status}`)
 
-    try {
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(`Habilidades de ${data.name}`)
-        data.abilities.forEach(ability => {
-            console.log(ability.ability.name)
-        })
-    } catch (error) {
-        console.log("Error", error)
-    }
+    const data = await response.json()
+    console.log(`Habilidades de ${data.name}:`)
+    data.abilities.forEach(ability => console.log(ability.ability.name))
+  } catch (error) {
+    console.error("Error al consultar Pokémon:", error)
+  }
 }
 
 getPokemon("pikachu")
