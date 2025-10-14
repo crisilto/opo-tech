@@ -279,6 +279,7 @@ newParagraph.remove()
 // ✅ Forma tradicional (anterior a ES6):
 // 1. Se busca el elemento padre
 // 2. Se elimina el hijo desde el padre
+
 const parent = container
 parent.removeChild(newParagraph)
 
