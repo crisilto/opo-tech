@@ -1,0 +1,24 @@
+{
+  "name": "opo-tech",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene todo el material, ejercicios y documentación organizada por las asignaturas ficticias diseñadas para la \"Oposición Tech\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crisilto/opo-tech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/crisilto/opo-tech/issues"
+  },
+  "homepage": "https://github.com/crisilto/opo-tech#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
