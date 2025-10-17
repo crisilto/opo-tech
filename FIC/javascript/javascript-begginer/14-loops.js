@@ -24,17 +24,17 @@ do{
 }while (i < 5);
 
 // FOR OF
-myArray = ["Cristina", "Silvestre", "crisilto", 27, true]
+let myArray = ["Cristina", "Silvestre", "crisilto", 27, true]
 for(let value of myArray) {
     console.log(value);
 }
 
-mySet = new Set(["Cristina", "Silvestre", "crisilto", 27, true]);
+let mySet = new Set(["Cristina", "Silvestre", "crisilto", 27, true]);
 for(let value of mySet) {
     console.log(value);
 }
 
-myMap = new Map([
+let myMap = new Map([
     ["name", "Cristina"],
     ["surname", "Silvestre"],
     ["age", 27],
