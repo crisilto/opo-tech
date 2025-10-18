@@ -53,17 +53,18 @@ function checkNumber(num) {
     } else if (num > 100) {
         throw new Error("The number is greater than 100")
     }
-    return "Valid number"
+    return "Valid number: " + num
 }
 
-try {
-    console.log(checkNumber(101))
-    console.log(checkNumber(0))
-    console.log(checkNumber(-23))
-    console.log(checkNumber(12))
-} catch (error) {
-    console.log("Error:", error.message)
-}
+const numbers = [101, 0, -23, 12]
+
+numbers.forEach(num =>{
+    try{
+        console.log(checkNumber(num))
+    }catch(err){
+        console.log("Error: ", num, " ", err.message)
+    }
+})
 
 // 7. Captura varias excepciones en un mismo try-catch.
 
