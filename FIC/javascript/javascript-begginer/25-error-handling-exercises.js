@@ -143,4 +143,4 @@ function retryOperation() {
     }
 }
 
-retryOperation(10)
+retryOperation()
