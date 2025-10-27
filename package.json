@@ -20,5 +20,10 @@
   "homepage": "https://github.com/crisilto/opo-tech#readme",
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "editor.formatOnSave": true
 }

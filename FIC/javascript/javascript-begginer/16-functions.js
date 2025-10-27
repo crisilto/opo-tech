@@ -58,7 +58,7 @@ function applyFunc(func, ...params) {
     return func(...params)
 }
 let sumaOrdenSuperior = applyFunc(sum, 2, 4)
-console.log(sumaOrdenSuperior) 
+console.log(sumaOrdenSuperior)
 
 // forEach
 // array
