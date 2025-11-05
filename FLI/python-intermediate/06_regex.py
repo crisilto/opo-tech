@@ -179,3 +179,19 @@ print(re.findall(pattern, email))
 #    A veces, usar métodos normales de cadenas (`split()`, `replace()`, `in`, etc.)
 #    puede ser más sencillo y eficiente para casos simples.
 # ---------------------------------------------------------------
+
+
+# extra
+# | Concepto | Qué hace             | Ejemplo                     |       |        |
+# | -------- | -------------------- | --------------------------- | ----- | ------ |
+# | `.`      | Cualquier carácter   | `a.b` → “acb”, “a3b”, “a_b” |       |        |
+# | `\d`     | Dígito (0-9)         | `\d+` → “123”               |       |        |
+# | `\w`     | Letra o número       | `\w+` → “hola123”           |       |        |
+# | `\s`     | Espacio              | `\s+` → “   ”               |       |        |
+# | `^`      | Empieza por          | `^Hola`                     |       |        |
+# | `$`      | Termina en           | `mundo$`                    |       |        |
+# | `[]`     | Rango o grupo        | `[A-Za-z]`                  |       |        |
+# | `+`      | 1 o más repeticiones | `\d+`                       |       |        |
+# | `*`      | 0 o más repeticiones | `a*`                        |       |        |
+# | `{n,m}`  | entre n y m veces    | `\d{2,4}`                   |       |        |
+# | `        | `                    | O lógico                    | `hola | adiós` |
